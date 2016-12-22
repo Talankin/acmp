@@ -23,12 +23,14 @@ public class Main {
         pw = new PrintWriter(new File("output.txt"));
         int n = scanner.nextInt();
         int sum = 0;
-
-        for (int i = Math.abs(n); i > 0 ; i--) {
-            sum += i;
-        }
-        if (n < 0) {
-            sum = -sum;
+        if (n <= 0 && n >= -10000) {
+            for (int i = 1; i >= n; i--) {
+                sum += i;
+            }
+        } else if (n > 0 && n <= 10000) {
+            for (int i = 1; i <= n; i++) {
+                sum += i;
+            }
         }
         pw.print(sum);
         pw.close();
