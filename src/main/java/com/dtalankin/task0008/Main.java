@@ -1,5 +1,5 @@
 /**
- *  02.01.2017
+ *  03.01.2017
  *  Dmitry Talankin
  */
 
@@ -8,7 +8,6 @@ package com.dtalankin.task0008;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
@@ -22,22 +21,16 @@ public class Main {
     public void run() throws IOException {
         scanner = new Scanner(new File("input.txt"));
         pw = new PrintWriter(new File("output.txt"));
-        BigDecimal bdA = new BigDecimal(scanner.next());
-        BigDecimal bdB = new BigDecimal(scanner.next());
-        BigDecimal bdC = new BigDecimal(scanner.next());
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        String strOut = "";
 
-        if (isNumCorrect(bdA) && isNumCorrect(bdB) && isNumCorrect(bdC)) {
-            pw.print(bdA.max(bdB).max(bdC));
+        if (a <= 100 && b <= 100 && c <= 1000000) {
+            strOut = (a*b)==c ? "YES" : "NO";
         }
 
+        pw.print(strOut);
         pw.close();
-    }
-
-    private boolean isNumCorrect(BigDecimal bd) {
-        final BigDecimal maxBound = new BigDecimal("1E100");
-        final BigDecimal minBound = new BigDecimal("1");
-        BigDecimal min = minBound.min(bd);
-        BigDecimal max = maxBound.max(bd);
-        return min.equals(minBound) && max.equals(maxBound);
     }
 }
