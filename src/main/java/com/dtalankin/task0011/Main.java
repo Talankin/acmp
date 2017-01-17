@@ -43,6 +43,7 @@ public class Main {
                 array.set(i, array.get(i) + 1);
                 pos = 0;
                 while (pos <= array.size()) {
+                    sort(array);
                     pos++;
                     count = pos - 1;
 
@@ -52,8 +53,7 @@ public class Main {
                     }
                     for (int j = pos; j < array.size(); j++) {
                         if (array.get(j) == 1) {
-                            array.set(j, array.get(j - 1));
-                            array.set(j - 1, 1);
+                            Collections.swap(array, j, j-1);
                             System.out.println(j); //once j was decremented: was 3 then set 2
                         }
                     }
