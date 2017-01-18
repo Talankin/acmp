@@ -39,25 +39,30 @@ public class Main {
 
             int pos, count;
             for (int i = 0; i < array.size(); i++) {
-                sort(array);
+
                 array.set(i, array.get(i) + 1);
                 pos = 0;
-                while (pos <= array.size()) {
-                    sort(array);
-                    pos++;
-                    count = pos - 1;
+//                for (int l = 1; l < array.size(); l++) {
 
-                    if (count > 0 && i > 0) {
-                        Collections.rotate(array, count); // looks like one time rotate is more than Me need
-                        System.out.println();
-                    }
-                    for (int j = pos; j < array.size(); j++) {
+//                    sort(array);
+//                    pos++;
+//                    count = pos - 1;
+
+//                    if (i > 0) {
+//                        Collections.rotate(array, count);
+//                        System.out.println();
+//                    }
+                    for (int j = i; j < array.size(); j++) {
                         if (array.get(j) == 1) {
-                            Collections.swap(array, j, j-1);
-                            System.out.println(j); //once j was decremented: was 3 then set 2
+                            Collections.swap(array, j, j - 1);
+                            System.out.println(j);
                         }
                     }
-                }
+                sort(array);
+                Collections.rotate(array, i);
+                System.out.println();
+
+//                }
             }
 //            {
 //                if (array.get(0) + 1 <= k) {
