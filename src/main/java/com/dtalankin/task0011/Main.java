@@ -26,43 +26,39 @@ public class Main {
         scanner = new Scanner(new File("input.txt"));
         pw = new PrintWriter(new File("output.txt"));
 
-        int k,n;
-        k = scanner.nextInt();
+        int a,n;
+        a = scanner.nextInt();
         n = scanner.nextInt();
         List<Integer> array = new ArrayList<Integer>();
 
 
-        if (k>0 && k<=n && n<=300) {
+        if (a>0 && a<=n && n<=300) {
             for (int i = 0; i < n ; i++) {
                 array.add(1);
             }
 
             int pos, count;
             for (int i = 0; i < array.size(); i++) {
-
+                //loop to increment and check sum of elements
                 array.set(i, array.get(i) + 1);
                 pos = 0;
-//                for (int l = 1; l < array.size(); l++) {
+                for (int j = 1; j < array.size(); j++) {
+                    //loop to move blocks of numbers
 
-//                    sort(array);
-//                    pos++;
-//                    count = pos - 1;
-
-//                    if (i > 0) {
-//                        Collections.rotate(array, count);
-//                        System.out.println();
-//                    }
-                    for (int j = i; j < array.size(); j++) {
-                        if (array.get(j) == 1) {
-                            Collections.swap(array, j, j - 1);
-                            System.out.println(j);
+                    System.out.println();
+                    for (int k = i+1; k < array.size(); k++) {
+                        //loop to move an element in blocks
+                        if (array.get(k) == 1) {
+                            Collections.swap(array, k, k - 1);
+                            System.out.println();
                         }
                     }
                 sort(array);
                 Collections.rotate(array, i);
+
                 System.out.println();
 
-//                }
+                }
             }
 //            {
 //                if (array.get(0) + 1 <= k) {
@@ -79,7 +75,7 @@ public class Main {
 
 
 
-        pw.print(k);
+        pw.print(a);
         pw.close();
     }
 
