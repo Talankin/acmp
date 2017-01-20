@@ -53,11 +53,10 @@ public class Main {
                             System.out.println();
                         }
                     }
-                sort(array);
-                Collections.rotate(array, i);
-
-                System.out.println();
-
+                    sort(array);
+                    if (i==0) break;
+                    Collections.rotate(array, j);
+                    System.out.println();
                 }
             }
 //            {
