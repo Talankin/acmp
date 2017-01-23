@@ -37,13 +37,24 @@ public class Main {
                 array.add(1);
             }
 
-            int pos, count;
-            for (int i = 0; i < array.size(); i++) {
+            int pos, count=5, i=0, j;
+//            for (int i = 0; i < array.size(); i++) {
+            while (i < array.size()) {
                 //loop to increment and check sum of elements
+//                int size = array.size();
+
+                if (count == 1) {
+                    sort(array);
+                }
                 array.set(i, array.get(i) + 1);
+                array.remove(array.size()-1);
+                count -= 2;
                 pos = 0;
-                for (int j = 1; j < array.size(); j++) {
+                j = 0;
+                while(j < count) {
+//                for (int j = 1; j < array.size(); j++) {
                     //loop to move blocks of numbers
+
 
                     System.out.println();
                     for (int k = i+1; k < array.size(); k++) {
@@ -55,10 +66,14 @@ public class Main {
                     }
                     sort(array);
                     if (i==0) break;
-                    Collections.rotate(array, j);
+                    Collections.rotate(array, count);
                     System.out.println();
+                    j++;
                 }
+                i++;
             }
+
+
 //            {
 //                if (array.get(0) + 1 <= k) {
 //                    array.remove(array.size()-1);
