@@ -37,53 +37,43 @@ public class Main {
                 array.add(1);
             }
 
-            int pos, count=5, i=0, j;
-//            for (int i = 0; i < array.size(); i++) {
-            while (i < array.size()) {
-                //loop to increment and check sum of elements
-//                int size = array.size();
+            loop(array, a);
 
-                if (count == 1) {
-                    sort(array);
-                }
-                array.set(i, array.get(i) + 1);
-                array.remove(array.size()-1);
-                count -= 2;
-                pos = 0;
-                j = 0;
-                while(j < count) {
-//                for (int j = 1; j < array.size(); j++) {
-                    //loop to move blocks of numbers
-
-
-                    System.out.println();
-                    for (int k = i+1; k < array.size(); k++) {
-                        //loop to move an element in blocks
-                        if (array.get(k) == 1) {
-                            Collections.swap(array, k, k - 1);
-                            System.out.println();
-                        }
-                    }
-                    sort(array);
-                    if (i==0) break;
-                    Collections.rotate(array, count);
-                    System.out.println();
-                    j++;
-                }
-                i++;
-            }
-
-
-//            {
-//                if (array.get(0) + 1 <= k) {
-//                    array.remove(array.size()-1);
-//                    array.set(0, array.get(0) + 1);
+//
+//            int pos, count=5, i=0, j;
+////            for (int i = 0; i < array.size(); i++) {
+//            while (i < array.size()) {
+//                //loop to increment and check sum of elements
+////                int size = array.size();
+//
+//                if (count == 1) {
+//                    sort(array);
 //                }
-//                int sum = 0;
-//                for (int i = 0; i < array.size(); i++) {
-//                    sum+=array.get(i);
+//                array.set(i, array.get(i) + 1);
+//                array.remove(array.size()-1);
+//                count -= 2;
+//                pos = 0;
+//                j = 0;
+//                while(j < count) {
+////                for (int j = 1; j < array.size(); j++) {
+//                    //loop to move blocks of numbers
+//
+//
+//                    System.out.println();
+//                    for (int k = i+1; k < array.size(); k++) {
+//                        //loop to move an element in blocks
+//                        if (array.get(k) == 1) {
+//                            Collections.swap(array, k, k - 1);
+//                            System.out.println();
+//                        }
+//                    }
+//                    sort(array);
+//                    if (i==0) break;
+//                    Collections.rotate(array, count);
+//                    System.out.println();
+//                    j++;
 //                }
-//                System.out.println(sum);
+//                i++;
 //            }
         }
 
@@ -99,6 +89,17 @@ public class Main {
                 return -o1.compareTo(o2);
             }
         });
+    }
+
+    private void loop(List<Integer> array, int a) {
+        for (int i = 0; i < array.size(); i++) {
+            for (int j = 2; j <= a; j++) {
+                array.set(i, j);
+                array.remove(array.size()-1);
+                System.out.println();
+            }
+
+        }
     }
 
 }
