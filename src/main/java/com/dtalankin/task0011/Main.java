@@ -97,9 +97,23 @@ public class Main {
                 array.set(i, j);
                 array.remove(array.size()-1);
                 System.out.println();
+                secondLoop(array, i);
+                System.out.println();
             }
-
         }
+    }
+
+    private void secondLoop(List<Integer> array, int i) {
+        for (int k = i+1; k < array.size(); k++) {
+            //loop to move an element in blocks
+            if (array.get(k) == 1) {
+                Collections.swap(array, k, k - 1);
+                System.out.println();
+            }
+        }
+            sort(array);
+            Collections.rotate(array, i);
+
     }
 
 }
