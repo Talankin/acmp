@@ -26,7 +26,7 @@ public class Main {
         scanner = new Scanner(new File("input.txt"));
         pw = new PrintWriter(new File("output.txt"));
 
-        int a,n;
+        int a, n;
         a = scanner.nextInt();
         n = scanner.nextInt();
         List<Integer> array = new ArrayList<Integer>();
@@ -37,7 +37,7 @@ public class Main {
                 array.add(1);
             }
 
-            loop(array, a);
+            firstLoop(array, a);
 
 //
 //            int pos, count=5, i=0, j;
@@ -77,8 +77,6 @@ public class Main {
 //            }
         }
 
-
-
         pw.print(a);
         pw.close();
     }
@@ -91,14 +89,23 @@ public class Main {
         });
     }
 
-    private void loop(List<Integer> array, int a) {
+    private void firstLoop(List<Integer> array, int a) {
+        int j, count=array.size();
         for (int i = 0; i < array.size(); i++) {
-            for (int j = 2; j <= a; j++) {
-                array.set(i, j);
-                array.remove(array.size()-1);
+            //loop to increment and check sum of elements
+            sort(array);
+            array.set(i, array.get(i) + 1);
+            array.remove(array.size() - 1);
+//            count -= 2;
+            count = array.size()-i-1;
+            j = i;
+            while(j <= count) {
+                //loop to move blocks of numbers
                 System.out.println();
-                secondLoop(array, i);
+                secondLoop(array, j);
+                if (j==0) break;
                 System.out.println();
+                j++;
             }
         }
     }
@@ -111,8 +118,18 @@ public class Main {
                 System.out.println();
             }
         }
-            sort(array);
-            Collections.rotate(array, i);
+        sort(array);
+        Collections.rotate(array, i);
+        System.out.println();
+    }
+
+    private void thirdLoop(List<Integer> array) {
+
+        for (int i = 0; i < array.size(); i++) {
+
+        }
+//        Collections.rotate(array, count);
+
 
     }
 
